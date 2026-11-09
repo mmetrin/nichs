@@ -8,7 +8,7 @@ const platformNavigation = [
   { id: 'how-it-works', label: 'Как работает', href: '#how-it-works' },
   { id: 'who-it-is-for', label: 'Кому подходит', href: '#who-it-is-for' },
   { id: 'platforms', label: 'Площадки', href: '#platforms' },
-  { id: 'budget', label: 'Расчет бюджета', href: '#budget' },
+  { id: 'budget', label: 'Расчёт РК', href: '#budget' },
   { id: 'interface', label: 'Интерфейс', href: '#interface' },
 ]
 

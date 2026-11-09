@@ -1,5 +1,5 @@
 .site-header {
-  --site-header-frame-padding-right: 16px;
+  --site-header-frame-padding-right: 20px;
   position: fixed;
   top: 0;
   left: 0;
@@ -49,13 +49,13 @@
 
 .site-header__logo {
   display: block;
-  width: 124px;
+  width: 250px;
   height: 48px;
 }
 
 .site-header__logo img {
   display: block;
-  width: 121.473px;
+  width: 250px;
   height: 48px;
 }
 
@@ -148,9 +148,9 @@
   opacity: 1;
 }
 .site-header--updated .site-header__navigation {
-  position: static;
-  margin-inline: auto;
-  transform: none;
+  position: absolute;
+  left: calc(50% + 0.5px);
+  transform: translateX(-50%);
 }
 .site-header--updated .site-header__logo { flex-shrink: 0; }
 .site-header--updated .site-header__navigation-link {

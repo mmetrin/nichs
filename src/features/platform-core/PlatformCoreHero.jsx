@@ -2,25 +2,25 @@ import { useRef } from 'react'
 import { useHeroFactsBottom } from '../../shared/lib/useHeroFactsBottom.js'
 import { CoreVisual } from './CoreVisual.jsx'
 import { OrbitalHeroFacts } from './OrbitalHeroFacts.jsx'
-import infoIcon from '../../assets/platform-core/info.svg'
+import infoIcon from '../../assets/platform-core/audience-info.svg'
 import '../../shared/ui/action-button/ActionButton.css'
 import './PlatformCoreHero.css'
 
 const platformFacts = [
   {
     id: 'audience',
-    value: <>65+ <span>млн</span></>,
-    description: <><span>аудитории от МТС,</span> самого крупного оператора страны</>,
+    value: <>65+<span>млн</span></>,
+    description: <>достижимых абонентов МТС<br />с согласием на рекламу</>,
   },
   {
     id: 'mau',
-    value: <>78 <span>млн</span></>,
-    description: <><span>средняя MAU</span> <button className="platform-core-hero__mau-info" type="button" aria-label="Средние данные по VK, Telegram и Avito, рассчитанные по состоянию на май 2026 года."><img src={infoIcon} width="24" height="24" alt="" /><span className="platform-core-hero__mau-tooltip" aria-hidden="true">Средние данные по VK, Telegram и Avito, рассчитанные по состоянию на май 2026 года.</span></button><br />других площадок</>,
+    value: <>120<span>млн</span></>,
+    description: <>пользователей в месяц<br />на площадках <button className="platform-core-hero__mau-info" type="button" aria-label="Площадки: VK, Avito и Telegram."><img src={infoIcon} width="24" height="24" alt="" /><span className="platform-core-hero__mau-tooltip" aria-hidden="true">Площадки: VK, Avito и Telegram.</span></button></>,
   },
   {
     id: 'account',
-    value: <><span className="platform-core-hero__fact-prefix">всего</span> 1</>,
-    description: <><span>личный кабинет</span><br />для управления</>,
+    value: <>1<span>кабинет</span></>,
+    description: <>для управления рекламой<br />на всех площадках сразу</>,
   },
 ]
 

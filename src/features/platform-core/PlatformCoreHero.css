@@ -17,13 +17,12 @@
 .core-visual__loader { width: 32px; height: 32px; border: 1px solid #d7e4ef; border-top-color: #71aadc; border-radius: 50%; animation: core-loading 1.8s linear infinite; }
 @keyframes core-loading { to { transform: rotate(360deg); } }
 .platform-core-hero .orbital-hero__facts { position: absolute; bottom: var(--hero-facts-bottom, 120px); width: 765px; gap: clamp(28px, 3.5vw, 56px); margin-top: 0; }
-.platform-core-hero .orbital-hero__fact { flex-basis: clamp(200px, 15.625vw, 250px); }
-.platform-core-hero .orbital-hero__fact:nth-child(2) { flex-basis: clamp(150px, 12.5vw, 200px); }
-.platform-core-hero .orbital-hero__fact:nth-child(3) { flex-basis: 200px; }
-.platform-core-hero .orbital-hero__number { font-size: clamp(42px, 3.25vw, 52px); line-height: 1.1; }
-.platform-core-hero .orbital-hero__fact p:not(.orbital-hero__number) { font-size: clamp(13px, 1.0625vw, 17px); line-height: 1.42; }
-.platform-core-hero .orbital-hero__number span { font-size: clamp(19px, 1.5vw, 24px); }
-.platform-core-hero .orbital-hero__number .platform-core-hero__fact-prefix { margin-left: 0; }
+.platform-core-hero .orbital-hero__fact { flex: 0 0 auto; }
+.platform-core-hero .orbital-hero__fact:nth-child(2) { flex-basis: auto; }
+.platform-core-hero .orbital-hero__fact:nth-child(3) { flex-basis: auto; }
+.platform-core-hero .orbital-hero__number { display: flex; align-items: flex-end; gap: 12px; font-size: clamp(42px, 3.25vw, 52px); line-height: 1.1; }
+.platform-core-hero .orbital-hero__fact p:not(.orbital-hero__number) { color: var(--mts-txt-primary); font-size: clamp(13px, 1.0625vw, 17px); line-height: 24px; }
+.platform-core-hero .orbital-hero__number span { margin-left: 0; padding-bottom: 6px; font-size: clamp(19px, 1.5vw, 24px); }
 .platform-core-hero__mau-info { position: relative; display: inline-grid; place-items: center; width: 24px; height: 24px; margin-left: 3px; padding: 0; vertical-align: middle; border: 0; background: none; cursor: help; }
 .platform-core-hero__mau-info img { display: block; width: 24px; height: 24px; }
 .platform-core-hero__mau-info:focus-visible { outline: 2px solid #1863d5; outline-offset: 3px; border-radius: 5px; }

@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom'
 import { useRef } from 'react'
-import logo from '../../../assets/figma/header-menu/logo.svg'
+import logo from '../../../assets/figma/header-menu/marketer-logo.svg'
 import { useHeaderScroll } from './useHeaderScroll.js'
 import '../action-button/ActionButton.css'
 import './SiteHeader.css'
@@ -17,11 +17,11 @@ function PageHeader({ navigationItems = [], actionHref = '#connection', classNam
       className={`site-header site-header--updated${floating ? ' site-header--floating site-header--fixed-on' : ' site-header--static'}${floating && isHidden ? ' site-header--hidden' : ''} ${className}`}>
       <div className="site-header__frame" aria-hidden="true" />
       <div className="site-header__content">
-        <a className="site-header__logo" href="#top" aria-label="МТС Маркетолог 2.0 — начало страницы"><img src={logo} alt="МТС ADS" /></a>
+        <a className="site-header__logo" href="#top" aria-label="МТС Маркетолог 2.0 — начало страницы"><img src={logo} alt="МТС Маркетолог 2.0" /></a>
         <nav className="site-header__navigation" aria-label="Основная навигация">
           {navigationItems.map(item => <a className="site-header__navigation-link" href={item.href} key={item.id}>{item.label}</a>)}
         </nav>
-        <a className="action-button action-button--medium site-header__action" href={actionHref}><span className="action-button__label">Запустить рекламу</span></a>
+        <a className="action-button action-button--medium site-header__action" href={actionHref}><span className="action-button__label">Подключить Маркетолог 2.0</span></a>
       </div>
     </header>, document.body,
   )
