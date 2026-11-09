@@ -1,3 +1,4 @@
+import { PlatformTooltip } from './PlatformTooltip.jsx'
 import { useRef } from 'react'
 import { AmbientParticles } from '../../shared/ui/ambient-particles/AmbientParticles.jsx'
 import { AudienceConnector } from './AudienceConnector.jsx'
@@ -92,7 +93,7 @@ export function PlatformAudienceSection() {
             <AudienceTechnologyGraphic variant="stable" />
           </article>
           <article className="platform-audience__technology" data-audience-stage="smart">
-            <h3 className="platform-audience__smart-heading"><span>Smart Target</span><img src={smartTargetWaiting} width="24" height="24" alt="" /></h3>
+            <h3 className="platform-audience__smart-heading"><span>Smart Target</span><PlatformTooltip icon={smartTargetWaiting} label="О доступности Smart Target">Функция в разработке. Скоро появится в кабинете</PlatformTooltip></h3>
             <p>ML-модель подбирает креатив для каждого сегмента с учётом вероятности откликов</p>
             <AudienceTechnologyGraphic variant="smart" />
           </article>

@@ -27,14 +27,12 @@
 
 .platform-use-cases { width: 1440px; margin-inline: auto; }
 .platform-use-cases__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 60px; }
-.platform-use-cases__card { display: flex; flex-direction: column; align-items: center; height: 290px; overflow: hidden; border-radius: 40px; background: var(--mts-bg-dark); }
+.platform-use-cases__card { display: flex; flex-direction: column; align-items: center; height: 300px; overflow: hidden; border-radius: 40px; background: var(--mts-bg-dark); }
 .platform-use-cases__copy { flex: 0 0 auto; width: 100%; padding: 32px 32px 24px; text-align: center; }
 .platform-use-cases__copy h3 { font-size: 24px; line-height: 28px; }
 .platform-use-cases__copy p { margin-top: 12px; }
 .platform-use-cases__image-wrap { position: relative; flex: 1 1 auto; align-self: stretch; min-height: 0; overflow: hidden; }
-.platform-use-cases__image { position: absolute; top: 0; display: block; height: 146px; max-width: none; transform: translateX(-50%); }
-.platform-use-cases__image--brands { left: 50%; width: 602px; }
-.platform-use-cases__image--agencies { left: calc(50% - 8px); width: 526px; }
+.platform-use-cases__image { display: block; width: 100%; height: auto; }
 
 .platform-publishers { display: flex; flex-direction: column; align-items: center; gap: 60px; margin-top: 248px; padding-right: 2px; }
 .platform-publishers .platform-sections__heading h2 { line-height: 53px; }

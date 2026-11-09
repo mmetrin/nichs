@@ -41,7 +41,7 @@ export function PlatformCoreSections() {
         <div className="platform-use-cases__cards">
           {audiences.map(({ id, image, title, description }) => <article className="platform-use-cases__card" key={id}>
             <div className="platform-use-cases__copy"><h3>{title}</h3><p>{description}</p></div>
-            <div className="platform-use-cases__image-wrap"><img className={`platform-use-cases__image platform-use-cases__image--${id}`} src={image} alt="" loading="lazy" decoding="async" /></div>
+            <div className="platform-use-cases__image-wrap"><img className={`platform-use-cases__image platform-use-cases__image--${id}`} src={image} width="1432" height="312" alt="" loading="lazy" decoding="async" /></div>
           </article>)}
         </div>
       </section>

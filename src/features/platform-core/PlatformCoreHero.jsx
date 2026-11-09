@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useHeroFactsBottom } from '../../shared/lib/useHeroFactsBottom.js'
 import { CoreVisual } from './CoreVisual.jsx'
 import { OrbitalHeroFacts } from './OrbitalHeroFacts.jsx'
+import { PlatformTooltip } from './PlatformTooltip.jsx'
 import infoIcon from '../../assets/platform-core/audience-info.svg'
 import '../../shared/ui/action-button/ActionButton.css'
 import './PlatformCoreHero.css'
@@ -15,7 +16,7 @@ const platformFacts = [
   {
     id: 'mau',
     value: <>120<span>млн</span></>,
-    description: <>пользователей в месяц<br />на площадках <button className="platform-core-hero__mau-info" type="button" aria-label="Площадки: VK, Avito и Telegram."><img src={infoIcon} width="24" height="24" alt="" /><span className="platform-core-hero__mau-tooltip" aria-hidden="true">Площадки: VK, Avito и Telegram.</span></button></>,
+    description: <>пользователей в месяц<br />на площадках <PlatformTooltip className="platform-core-hero__mau-info" icon={infoIcon} label="О месячной аудитории площадок">Совокупная месячная аудитория Telegram, Avito и VK на 00.00.26</PlatformTooltip></>,
   },
   {
     id: 'account',

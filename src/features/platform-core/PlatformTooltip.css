@@ -1,0 +1,8 @@
+.platform-tooltip { --tooltip-icon-size: 24px; position: relative; display: inline-flex; flex: none; width: var(--tooltip-icon-size); height: var(--tooltip-icon-size); vertical-align: middle; }
+.platform-tooltip__trigger { display: grid; place-items: center; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: help; }
+.platform-tooltip__trigger img { display: block; width: var(--tooltip-icon-size); height: var(--tooltip-icon-size); }
+.platform-tooltip__trigger:focus-visible { outline: 2px solid #1863d5; outline-offset: 3px; border-radius: 5px; }
+.platform-tooltip .platform-tooltip__bubble { position: absolute; z-index: 10; bottom: 100%; width: 200px; padding: 0 0 8px; text-align: left; white-space: normal; }
+.platform-tooltip .platform-tooltip__message { display: block; padding: 10px 12px; border-radius: 12px; background: #1d2023; color: #fafafa; font: 400 14px/20px 'MTS Compact', Arial, sans-serif; }
+.platform-tooltip .platform-tooltip__arrow { position: absolute; bottom: 0; width: 36px; height: 8px; padding: 0; }
+.platform-tooltip__arrow img { position: absolute; top: -1px; display: block; }
