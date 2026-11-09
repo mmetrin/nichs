@@ -1,0 +1,10 @@
+html:root:has(.platform-core-page),
+html:root:has(.platform-core-page) body { background: #fff; }
+.platform-core-page { width: 100%; min-height: 100svh; background: transparent; color: var(--mts-txt-primary-on-light); }
+.platform-core-page .platform-audience { scroll-margin-top: 80px; }
+.platform-core-page .platform-sections { margin-top: 200px; }
+
+@media (min-width: 921px) and (max-width: 1170px) {
+  .platform-page-navigation .site-header__content { gap: 16px; }
+  .platform-page-navigation .site-header__navigation-link { padding-inline: 6px; font-size: 14px; }
+}
