@@ -90,7 +90,7 @@
   color: #ff0032;
 }
 
-.site-header .site-header__navigation-link:is(:hover, :focus-visible) .site-header .site-header__action.action-button--medium {
+.site-header .site-header__action.action-button--medium {
   min-width: 186px;
   min-height: 37px;
   background: rgb(255 255 255 / 70%);

@@ -1,20 +1,38 @@
-.platform-interface { width: 1440px; margin: 200px auto 0; }
-.platform-interface__carousel { margin-top: 60px; }
-.platform-interface__tabs { position: relative; display: flex; width: max-content; margin-inline: auto; padding: 4px; border-radius: 40px; background: var(--mts-bg-dark); }
-.platform-interface__tabs button { position: relative; min-height: 56px; padding: 20px 28px; border: 0; border-radius: 40px; background: transparent; color: var(--mts-txt-primary-on-light); cursor: pointer; font: 500 16px/16px 'MTS Wide', Arial, sans-serif; white-space: nowrap; transition: background-color 280ms ease; }
-.platform-interface__indicator { position: absolute; top: 4px; bottom: 4px; left: 0; border: 1px solid var(--mts-bg-states-action); border-radius: 40px; background: #fff; transition: transform 250ms ease, width 250ms ease; }
-.platform-interface__tabs button[aria-selected='false']:hover { background-color: rgb(0 0 0 / 8%); }
-.platform-interface__stage { position: relative; display: flex; align-items: center; width: 1440px; margin-top: 40px; }
-.platform-interface__screen { position: relative; flex: 0 0 1000px; aspect-ratio: 2844 / 1530; overflow: hidden; border-radius: 40px; background: #e6edf5; }
-.platform-interface__screen video,
-.platform-interface__poster { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
-.platform-interface__screen video { opacity: 0; }
+.platform-interface { display: flex; align-items: flex-start; gap: 50px; width: 1440px; margin: 200px auto 0; }
+.platform-interface__copy { flex: 0 0 590px; padding-top: 60px; }
+.platform-interface__texts { display: grid; }
+.platform-interface__text { grid-area: 1 / 1; display: flex; flex-direction: column; gap: 20px; opacity: 0; transform: translate3d(0, 6px, 0); pointer-events: none; }
+.platform-interface__text h2 { font-size: 44px; line-height: 1.2; }
+.platform-interface__text h2, .platform-interface__text p { letter-spacing: 0; }
+.platform-interface__text.is-previous { transform: translate3d(0, -6px, 0); }
+.platform-interface__text.is-active { opacity: 1; transform: none; pointer-events: auto; }
+.platform-interface__actions { display: flex; align-items: center; gap: 28px; margin-top: 60px; }
+.platform-interface__actions .platform-sections__cta { width: 219px; line-height: 16px; white-space: nowrap; }
+.platform-interface__navigation { display: flex; align-items: center; }
+.platform-interface__dot { display: grid; place-items: center; width: 32px; height: 44px; padding: 0; border: 0; border-radius: 22px; background: transparent; cursor: pointer; transition: width 300ms ease; }
+.platform-interface__dot span { position: relative; overflow: hidden; width: 8px; height: 8px; border-radius: 20px; background: #93adc8; transition: width 300ms ease, background 300ms ease; }
+.platform-interface__dot span::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: var(--mts-bg-states-action); transform: scaleX(var(--slide-progress, 0)); transform-origin: left; opacity: 0; }
+.platform-interface__dot[aria-pressed='true'] { width: 84px; }
+.platform-interface__dot[aria-pressed='true'] span { width: 60px; background: rgb(255 0 50 / 10%); }
+.platform-interface__dot[aria-pressed='true'] span::after { opacity: 1; }
+.platform-interface__dot:hover:not([aria-pressed='true']) span { background: var(--mts-bg-states-action); }
+.platform-interface__media { position: relative; flex: 0 0 800px; height: 440px; }
+.platform-interface__screen { position: absolute; inset: 0; overflow: hidden; border-radius: 40px; background: #fff; opacity: 0; transform: translate3d(10px, 0, 0); pointer-events: none; }
+.platform-interface__screen.is-previous { transform: translate3d(-8px, 0, 0); }
+.platform-interface__screen.is-active { opacity: 1; transform: none; pointer-events: auto; z-index: 1; }
+.platform-interface__text, .platform-interface__screen { transition: opacity 700ms cubic-bezier(.4, 0, .2, 1), transform 700ms cubic-bezier(.4, 0, .2, 1); }
+.platform-interface__screen video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; opacity: 0; }
+.platform-interface__screen.is-playing { background: #000; }
 .platform-interface__screen.is-playing video { opacity: 1; }
+.platform-interface__poster { position: absolute; top: 14px; left: 9px; display: block; width: 1117px; height: 599px; max-width: none; object-fit: cover; }
+.platform-interface__poster--targeting { top: 11.245px; left: 7.213px; width: 1118.787px; height: 601.755px; }
 .platform-interface__screen:not(.is-playing)::after { content: ''; position: absolute; inset: 0; background: rgb(103 131 173 / 28%); pointer-events: none; }
-.platform-interface__playback { position: absolute; z-index: 1; top: 50%; left: 50%; display: grid; place-items: center; width: 60px; height: 60px; padding: 0; border: 1.5px solid rgb(103 131 173 / 28%); border-radius: 50%; background: rgb(103 131 173 / 28%); backdrop-filter: blur(3px); cursor: pointer; transform: translate(-50%, -50%); }
+.platform-interface__playback { position: absolute; z-index: 1; top: 50%; left: 50%; display: grid; place-items: center; width: 59.574px; height: 59.574px; padding: 0; border: 1.489px solid rgb(103 131 173 / 28%); border-radius: 50%; background: rgb(103 131 173 / 28%); backdrop-filter: blur(2.979px); cursor: pointer; transform: translate(-50%, -50%); }
 .platform-interface__playback:hover { background: rgb(103 131 173 / 48%); }
 .platform-interface__playback img { display: block; }
-.platform-interface__card { position: relative; display: flex; flex: 0 0 480px; flex-direction: column; gap: 12px; margin-left: -40px; padding: 32px; border-radius: 40px; background: #fff; box-shadow: 0 5px 20px rgb(0 0 0 / 10%); text-align: left; }
-.platform-interface__card h3 { font: 500 24px/28px 'MTS Wide', Arial, sans-serif; letter-spacing: 0; }
-.platform-interface__card p { font: 400 17px/24px 'MTS Text', Arial, sans-serif; letter-spacing: 0; }
-@media (prefers-reduced-motion: reduce) { .platform-interface__indicator, .platform-interface__tabs button { transition: none; } }
+.platform-interface :is(a, button):focus-visible { outline: 2px solid #0070e5; outline-offset: 4px; }
+.platform-interface__error { position: absolute; z-index: 2; bottom: 16px; left: 16px; right: 16px; padding: 12px; border-radius: 16px; background: #fff; }
+@media (prefers-reduced-motion: reduce) {
+  .platform-interface__text, .platform-interface__screen, .platform-interface__dot, .platform-interface__dot span { transition: none; transform: none; }
+  .platform-interface__dot[aria-pressed='true'] span::after { transform: scaleX(1); }
+}

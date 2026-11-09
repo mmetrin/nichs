@@ -10,7 +10,7 @@ export const platformInterfaceSlides = [
     id: 'project', label: 'Создание проекта', video: projectVideo, cover: projectCover,
     title: 'Три рекламных канала — один проект',
     titleLines: ['Три рекламных канала', '— один проект'],
-    description: 'Telegram, VK и Авито собраны в одном проекте с общими датами и бюджетом 100 000 ₽ на каждый канал. Кампании удобно планировать и контролировать на одном экране',
+    description: 'Создайте кампании для Telegram, VK и Авито в одном проекте: задайте одинаковые сроки и отдельный бюджет для каждого канала. Так проще планировать запуск и контролировать рекламу на одном экране',
   },
   {
     id: 'audiences', label: 'Сохранение и исключение аудитории', video: audienceVideo, cover: audienceCover,
@@ -20,8 +20,8 @@ export const platformInterfaceSlides = [
   },
   {
     id: 'targeting', label: 'Настройки таргетов', video: targetingVideo, cover: targetingCover,
-    title: 'Точная настройка аудитории Big Data МТС',
-    titleLines: ['Точная настройка', 'аудитории Big Data МТС'],
+    title: 'Точная настройка аудитории Big Data',
+    titleLines: ['Точная настройка', 'аудитории Big Data'],
     description: 'В настройках выбираются город и возраст, а прогноз охвата обновляется по мере выбора параметров. Так можно оценить размер аудитории ещё до запуска рекламы',
   },
 ]
