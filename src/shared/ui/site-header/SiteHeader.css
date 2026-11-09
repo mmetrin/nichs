@@ -21,9 +21,9 @@
   height: 80px;
   border-radius: 0 0 40px 0;
   background: rgb(247 250 253 / 10%);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  transition: left 240ms ease, width 240ms ease, background-color 240ms ease, backdrop-filter 240ms ease;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  transition: width 240ms ease;
 }
 
 .site-header--fixed-on {
@@ -31,9 +31,8 @@
 }
 
 .site-header--fixed-on .site-header__frame {
-  background: rgb(247 250 253 / 70%);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  background: var(--header-base, #f7fafd);
+  box-shadow: 0 5px 20px rgb(0 0 0 / 10%);
 }
 
 .site-header__content {
@@ -116,36 +115,26 @@
 .site-header--updated.site-header--floating {
   position: fixed;
   translate: 0 0;
-  opacity: 1;
-  transition: translate 520ms cubic-bezier(.22, 1, .36, 1), opacity 380ms ease;
+  visibility: visible;
+  transition: translate 240ms cubic-bezier(.22, 1, .36, 1), visibility 0s;
 }
 .site-header--updated.site-header--hidden {
   translate: 0 calc(-100% - 24px);
-  opacity: 0;
-  transition-duration: 420ms, 300ms;
+  visibility: hidden;
+  transition: translate 240ms cubic-bezier(.22, 1, .36, 1), visibility 0s linear 240ms;
 }
 @media (prefers-reduced-motion: reduce) {
   .site-header--updated.site-header--floating { transition: none; }
 }
 .site-header--updated .site-header__frame {
   background: rgb(247 250 253 / 10%);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   transition: width 240ms ease;
 }
-/* Keep the blur surface stable; only fade the opaque scroll-state overlay. */
-.site-header--updated .site-header__frame::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
+/* Use one opaque surface over the moving page, with no composited blur or fade. */
+.site-header--updated.site-header--fixed-on .site-header__frame {
   background: var(--header-base);
-  box-shadow: 0 5px 20px rgb(0 0 0 / 10%);
-  opacity: 0;
-  transition: opacity 280ms ease;
-}
-.site-header--updated.site-header--fixed-on .site-header__frame::after {
-  opacity: 1;
 }
 .site-header--updated .site-header__navigation {
   position: absolute;

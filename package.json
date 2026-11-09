@@ -9,7 +9,7 @@
     "build:pages": "vite build --base /nichs/",
     "lint": "npm run lint:exports && oxlint",
     "lint:exports": "node scripts/check-no-default-exports.mjs",
-    "test": "node --test src/features/platform-core/*.test.js",
+    "test": "node --test src/features/platform-core/*.test.js src/shared/ui/site-header/*.test.js",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -1,7 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { createHeaderScrollState } from './headerScrollState.js'
 
 export function useHeaderScroll(headerRef, keepVisible, enabled) {
   const [isHidden, setIsHidden] = useState(true)
+  const keepVisibleRef = useRef(keepVisible)
+
+  useEffect(() => { keepVisibleRef.current = keepVisible }, [keepVisible])
 
   useEffect(() => {
     if (!enabled) return
@@ -9,43 +13,45 @@ export function useHeaderScroll(headerRef, keepVisible, enabled) {
       window.scrollY,
       document.documentElement.scrollHeight - window.innerHeight,
     ))
-    let previousY = scrollPosition()
-    let direction = 0
-    let directionStart = previousY
+    const nextHidden = createHeaderScrollState(scrollPosition())
+    let hidden = true
+    let topBoundary = 88
     let frame = 0
+
+    const measureHeader = () => {
+      topBoundary = headerRef.current?.getBoundingClientRect().height ?? 88
+    }
+    measureHeader()
 
     const update = () => {
       frame = 0
-      const y = scrollPosition()
-      const nextDirection = Math.sign(y - previousY)
-      if (nextDirection && nextDirection !== direction) {
-        directionStart = previousY
-        direction = nextDirection
-      }
-      previousY = y
-
-      const nearTop = y <= (headerRef.current?.getBoundingClientRect().height ?? 88)
       const hasFocus = headerRef.current?.contains(document.activeElement)
-      const passedTolerance = Math.abs(y - directionStart) >= (direction > 0 ? 12 : 8)
-      setIsHidden((previous) => {
-        if (nearTop) return true
-        if (!previous && (keepVisible || hasFocus)) return false
-        return passedTolerance ? direction > 0 : previous
+      const next = nextHidden(scrollPosition(), {
+        topBoundary,
+        keepVisible: keepVisibleRef.current || hasFocus,
       })
+      if (next !== hidden) {
+        hidden = next
+        setIsHidden(next)
+      }
     }
     const onScroll = () => {
       if (!frame) frame = window.requestAnimationFrame(update)
     }
+    const onResize = () => { measureHeader(); onScroll() }
+    const observer = new ResizeObserver(onResize)
+    if (headerRef.current) observer.observe(headerRef.current)
 
     update()
     window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
+    window.addEventListener('resize', onResize)
     return () => {
       window.cancelAnimationFrame(frame)
       window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
+      window.removeEventListener('resize', onResize)
+      observer.disconnect()
     }
-  }, [headerRef, keepVisible, enabled])
+  }, [headerRef, enabled])
 
   return { isHidden }
 }
